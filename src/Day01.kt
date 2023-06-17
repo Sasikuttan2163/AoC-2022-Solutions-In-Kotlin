@@ -1,9 +1,9 @@
 fun main() {
-    val input = readInput("Day01")
-    val calories = input.joinToString (separator = " ", transform = { it })
+    val calories = readInput("Day01")
+        .joinToString (separator = " ", transform = { it })
         .split("  ")
         .map { it.split(" ").sumOf { n -> n.toInt() } }
-        .toMutableList()
+        .toList()
     val part1 = calories.max()
     val part2 = calories.sorted()
         .takeLast(3)
