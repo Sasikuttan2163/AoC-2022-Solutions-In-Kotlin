@@ -3,7 +3,6 @@ fun main() {
         .joinToString (separator = " ", transform = { it })
         .split("  ")
         .map { it.split(" ").sumOf { n -> n.toInt() } }
-        .toList()
     val part1 = calories.max()
     val part2 = calories.sorted()
         .takeLast(3)
