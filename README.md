@@ -1,6 +1,8 @@
 # AoC-2022-Solutions-In-Kotlin
-
-Welcome to the Advent of Code[^aoc] Kotlin project created by [sasikuttan2163][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
+Welcome to my Advent of Code solutions for the year 2022 in Kotlin!
+My code isn't the shortest or efficient code you'll find, I try to keep
+the code login clear while making it as concise as I can.
+You can read about the solutions [here](https://threadsnappers.github.io/advent-of-code-kotlin/).
 
 [^aoc]:
     [Advent of Code][aoc] – An annual event of Christmas-oriented programming challenges started December 2015.
