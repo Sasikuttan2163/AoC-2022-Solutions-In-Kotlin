@@ -6,7 +6,7 @@ fun main() {
     }
     val part2 = input.count { l ->
         val list = splitInTwo(l)
-        (list[0][0]..list[0][1]).toSet().intersect(list[1][0]..list[1][1]).isNotEmpty()
+        (list[0][0]..list[0][1]).intersect(list[1][0]..list[1][1]).isNotEmpty()
     }
     part1.println()
     part2.println()
