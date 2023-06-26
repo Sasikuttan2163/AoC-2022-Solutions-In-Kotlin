@@ -1,10 +1,9 @@
 fun main() {
-    val input = readInput("Day10")
     var cycleCount = 1
     val keyframes = mutableListOf(20, 60, 100, 140, 180, 220)
     var x = 1
     val instructionQueue = mutableListOf<Pair<Int, Int>>()
-    input.forEach { line ->
+    readInput("Day10").forEach { line ->
         cycleCount += if (line.startsWith("addx")) {
             instructionQueue.add(Pair(cycleCount + 2, line.substringAfter(" ").toInt()))
             2
