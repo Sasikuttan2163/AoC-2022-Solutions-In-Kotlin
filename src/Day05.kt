@@ -21,39 +21,35 @@ fun main() {
     }
     collectData()
     var stacks = data
-    input.filter { it.startsWith("move") }
-        .forEach { l ->
-            l.split(" ")
-                .filter { it.toIntOrNull() != null }
-                .map { it.toInt() }
-                .let { array ->
-                    repeat(array[0]) {
-                        stacks[array[2] - 1].push(stacks[array[1] - 1].pop())
+    fun applyOperations(moveMultipleAtOnce: Boolean): String {
+        input.filter { it.startsWith("move") }
+            .forEach { l ->
+                l.split(" ")
+                    .filter { it.toIntOrNull() != null }
+                    .map { it.toInt() }
+                    .let { array ->
+                        val stack = mutableListOf<Char>()
+                        repeat(array[0]) {
+                            stack.add(stacks[array[1] - 1].pop())
+                        }
+
+                        stacks[array[2] - 1].addAll(
+                            stack.apply {
+                                if (moveMultipleAtOnce) {
+                                    reverse()
+                                }
+                            }
+                        )
                     }
-                }
+            }
+        return stacks.fold("") { final, element ->
+            final + element.last()
         }
-    val part1 = stacks.fold("") { final, element ->
-        final + element.last()
     }
+    val part1 = applyOperations(moveMultipleAtOnce = false)
     collectData()
     stacks = data
-    input.filter { it.startsWith("move") }
-        .forEach { l ->
-            l.split(" ")
-                .filter { it.toIntOrNull() != null }
-                .map { it.toInt() }
-                .let { array ->
-                    val stack = mutableListOf<Char>()
-                    repeat(array[0]) {
-                        stack.add(stacks[array[1] - 1].pop())
-                    }
-                    stack.reversed()
-                        .forEach { stacks[array[2] - 1].push(it) }
-                }
-        }
-    val part2 = stacks.fold("") { final, element ->
-        final + element.last()
-    }
+    val part2 = applyOperations(moveMultipleAtOnce = true)
     part1.println()
     part2.println()
 }
